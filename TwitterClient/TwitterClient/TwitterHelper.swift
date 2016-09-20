@@ -90,4 +90,44 @@ class TwitterHelper {
             }
         }
     }
+    class func getUserTweets(followerId : String , OnSuccess: ()->() , OnFail : () -> ())
+    {
+        if let session = Twitter.sharedInstance().sessionStore.session() {
+//            let client = TWTRAPIClient.clientWithCurrentUser()
+            let client = TWTRAPIClient(userID: session.userID)
+            client.loadUserWithID(session.userID) { (user, error) -> Void in
+                if error == nil
+                {
+                        let client = TWTRAPIClient(userID: session.userID)
+                    
+
+                        let statusesShowEndpoint = "https://api.twitter.com/1.1/statuses/user_timeline.json"
+                        let params = ["id": followerId,"count":"10"]
+//                    let params = ["id": session.userID]
+                    var clientError : NSError?
+                        let request = client.URLRequestWithMethod("GET", URL: statusesShowEndpoint, parameters: params, error: &clientError)
+                        
+                        client.sendTwitterRequest(request) { (response, data, connectionError) -> Void in
+                            if connectionError != nil {
+                                print("Error: \(connectionError)")
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    OnFail()
+                                })
+                            }
+                            
+                            let json = JSON(data: data!)
+                            print(json)
+                            
+                        }
+                        
+                }
+                else
+                {
+                    print("Login error: \(error?.localizedDescription)")
+                    OnFail()
+                }
+                
+            }
+        }
+    }
 }

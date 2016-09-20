@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  Tweet.swift
 //  TwitterClient
 //
 //  Created by mohamed hamed on 9/20/16.
@@ -9,15 +9,15 @@
 import Foundation
 import SwiftyJSON
 
-//TODO Use TWTRUser initfromjson extension method
-class User {
+class Tweet
+{
     var id : String?
     var handle: String?
     var name : String?
     var profileImageUrl : String?
     var bannerImageUrl : String?
     var bio : String?
-
+    
     init(json : JSON)
     {
         if let _ = json["id_str"].string
@@ -48,10 +48,5 @@ class User {
         
         
     }
+    
 }
-
-
-
-
-
-

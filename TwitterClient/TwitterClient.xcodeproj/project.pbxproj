@@ -22,6 +22,9 @@
 		F12A9DF01D91724000C19BF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DEF1D91724000C19BF1 /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		F12A9DF41D917C1000C19BF1 /* TwitterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DF31D917C1000C19BF1 /* TwitterHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		F12A9DF61D91B39500C19BF1 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DF51D91B39500C19BF1 /* TimeLineViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F12A9DF81D91C8AB00C19BF1 /* FollowerCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DF71D91C8AA00C19BF1 /* FollowerCustomTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		F12A9DFA1D91D00000C19BF1 /* FollowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DF91D91D00000C19BF1 /* FollowerViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F12A9DFC1D91D31D00C19BF1 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DFB1D91D31D00C19BF1 /* Tweet.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		F12A9DEF1D91724000C19BF1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F12A9DF31D917C1000C19BF1 /* TwitterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterHelper.swift; sourceTree = "<group>"; };
 		F12A9DF51D91B39500C19BF1 /* TimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
+		F12A9DF71D91C8AA00C19BF1 /* FollowerCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerCustomTableViewCell.swift; sourceTree = "<group>"; };
+		F12A9DF91D91D00000C19BF1 /* FollowerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowerViewController.swift; sourceTree = "<group>"; };
+		F12A9DFB1D91D31D00C19BF1 /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 			children = (
 				F12A9DEF1D91724000C19BF1 /* User.swift */,
 				F12A9DF31D917C1000C19BF1 /* TwitterHelper.swift */,
+				F12A9DFB1D91D31D00C19BF1 /* Tweet.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -130,6 +137,8 @@
 				F12A9DCF1D9009FE00C19BF1 /* LoginViewController.swift */,
 				F12A9DEB1D9140D800C19BF1 /* FollowersViewController.swift */,
 				F12A9DF51D91B39500C19BF1 /* TimeLineViewController.swift */,
+				F12A9DF71D91C8AA00C19BF1 /* FollowerCustomTableViewCell.swift */,
+				F12A9DF91D91D00000C19BF1 /* FollowerViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -271,9 +280,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F12A9DEC1D9140D800C19BF1 /* FollowersViewController.swift in Sources */,
+				F12A9DFC1D91D31D00C19BF1 /* Tweet.swift in Sources */,
+				F12A9DFA1D91D00000C19BF1 /* FollowerViewController.swift in Sources */,
 				F12A9DEA1D91358500C19BF1 /* Alert.swift in Sources */,
 				F12A9DF61D91B39500C19BF1 /* TimeLineViewController.swift in Sources */,
 				F12A9DD01D9009FE00C19BF1 /* LoginViewController.swift in Sources */,
+				F12A9DF81D91C8AB00C19BF1 /* FollowerCustomTableViewCell.swift in Sources */,
 				F12A9DF01D91724000C19BF1 /* User.swift in Sources */,
 				F12A9DCE1D9009FE00C19BF1 /* AppDelegate.swift in Sources */,
 				F12A9DF41D917C1000C19BF1 /* TwitterHelper.swift in Sources */,
