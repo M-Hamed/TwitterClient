@@ -21,6 +21,7 @@
 		F12A9DEC1D9140D800C19BF1 /* FollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DEB1D9140D800C19BF1 /* FollowersViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F12A9DF01D91724000C19BF1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DEF1D91724000C19BF1 /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		F12A9DF41D917C1000C19BF1 /* TwitterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DF31D917C1000C19BF1 /* TwitterHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		F12A9DF61D91B39500C19BF1 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DF51D91B39500C19BF1 /* TimeLineViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		F12A9DEB1D9140D800C19BF1 /* FollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowersViewController.swift; sourceTree = "<group>"; };
 		F12A9DEF1D91724000C19BF1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F12A9DF31D917C1000C19BF1 /* TwitterHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterHelper.swift; sourceTree = "<group>"; };
+		F12A9DF51D91B39500C19BF1 /* TimeLineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			children = (
 				F12A9DCF1D9009FE00C19BF1 /* LoginViewController.swift */,
 				F12A9DEB1D9140D800C19BF1 /* FollowersViewController.swift */,
+				F12A9DF51D91B39500C19BF1 /* TimeLineViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			files = (
 				F12A9DEC1D9140D800C19BF1 /* FollowersViewController.swift in Sources */,
 				F12A9DEA1D91358500C19BF1 /* Alert.swift in Sources */,
+				F12A9DF61D91B39500C19BF1 /* TimeLineViewController.swift in Sources */,
 				F12A9DD01D9009FE00C19BF1 /* LoginViewController.swift in Sources */,
 				F12A9DF01D91724000C19BF1 /* User.swift in Sources */,
 				F12A9DCE1D9009FE00C19BF1 /* AppDelegate.swift in Sources */,

@@ -21,10 +21,42 @@
                     </view>
                     <connections>
                         <segue destination="BCU-Md-671" kind="show" identifier="followers" id="ELM-PX-YiV"/>
+                        <segue destination="jTV-lY-eXY" kind="show" identifier="timeline" id="4jF-uY-flO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Time Line View Controller-->
+        <scene sceneID="gqj-2x-ZiM">
+            <objects>
+                <tableViewController id="jTV-lY-eXY" customClass="TimeLineViewController" customModule="TwitterClient" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ka6-gp-ehI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oiD-OL-sQq">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oiD-OL-sQq" id="Xfb-Pg-BCb">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jTV-lY-eXY" id="gPr-Wn-ab6"/>
+                            <outlet property="delegate" destination="jTV-lY-eXY" id="WgC-Gj-ASh"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sNs-FN-m6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="843"/>
         </scene>
         <!--Followers View Controller-->
         <scene sceneID="M06-wi-n6i">
@@ -59,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1U-uq-0RV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="313"/>
+            <point key="canvasLocation" x="1302" y="185"/>
         </scene>
     </scenes>
 </document>
