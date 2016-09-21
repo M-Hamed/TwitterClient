@@ -3,6 +3,9 @@ import UIKit
 
 class Alert
 {
+    
+    
+    
     class func showAlert(VC : UIViewController , alertType : AlertType)
     {
         switch alertType

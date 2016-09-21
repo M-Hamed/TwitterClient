@@ -9,6 +9,7 @@
 import UIKit
 import TwitterKit
 import SwiftyJSON
+import SDWebImage
 
 class FollowersViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
     
@@ -36,6 +37,17 @@ class FollowersViewController: UIViewController, UITableViewDelegate , UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.FollowersTableView.dequeueReusableCellWithIdentifier("followerCell", forIndexPath: indexPath) as! FollowerCustomTableViewCell
         cell.NameLabel.text = followers[indexPath.row].name
+        cell.HandleLabel.text = "@" + followers[indexPath.row].handle!
+        if followers[indexPath.row].bio != nil
+        {
+            cell.BioTextView.text = followers[indexPath.row].bio
+        }else{
+            cell.BioTextView.text = ""
+        }
+        let defaultImage = UIImage(named: "profilePic")
+
+        cell.ProfileImage.sd_setImageWithURL(NSURL(string: followers[indexPath.row].profileImageUrl!), placeholderImage: defaultImage!, options: SDWebImageOptions.ProgressiveDownload, completed: nil)
+
         return cell
     }
     

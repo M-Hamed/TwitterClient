@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     //    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //There is a valid session //logged in user
         if (Twitter.sharedInstance().sessionStore.session() != nil)
         {
