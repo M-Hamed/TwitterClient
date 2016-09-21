@@ -29,7 +29,10 @@ class LoginViewController: UIViewController {
                         if let user = user {
                             print("@\(user.screenName) \(user.userID)")
                             //navigate to the followers page
-                            self.performSegueWithIdentifier("followers", sender: self)
+//                            self.performSegueWithIdentifier("followers", sender: self)
+
+                            
+                            self.performSegueWithIdentifier("timeline", sender: self)
                         }
                     }
                     else

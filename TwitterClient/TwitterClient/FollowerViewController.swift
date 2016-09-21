@@ -22,11 +22,20 @@ class FollowerViewController: UIViewController , UITableViewDelegate,UITableView
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var TweetsTableView: UITableView!
     
-    
+    func imageTapped( sender : UITapGestureRecognizer)
+    {
+        let imageview  = sender.view! as! UIImageView;
+
+        bannerPic.image = imageview.image
+//        print(imageview.image)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
+        let tap = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
+        bannerPic.addGestureRecognizer(tap)
+        profilePic.addGestureRecognizer(tap)
         
         self.TweetsTableView.delegate = self
         self.TweetsTableView.dataSource = self
