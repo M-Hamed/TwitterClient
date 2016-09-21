@@ -90,7 +90,7 @@ class TwitterHelper {
             }
         }
     }
-    class func getUserTweets(followerId : String , OnSuccess: ()->() , OnFail : () -> ())
+    class func getUserTweets(followerId : String , OnSuccess: (tweets : [TWTRTweet])->() , OnFail : () -> ())
     {
         if let session = Twitter.sharedInstance().sessionStore.session() {
 //            let client = TWTRAPIClient.clientWithCurrentUser()
@@ -114,12 +114,38 @@ class TwitterHelper {
                                     OnFail()
                                 })
                             }
-                            
-                            let json = JSON(data: data!)
-                            print(json)
-                            
+//                            
+//                            let json = JSON(data: data!)
+//                            print(json)
+
+                            do {
+                                var tweets : [TWTRTweet] = []
+                                let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
+                                print("json: \(json)")
+                                for item in json as! [Dictionary<String, AnyObject>] {
+                                    let tweet : TWTRTweet = TWTRTweet(JSONDictionary: item)!
+                                    print(tweet.description)
+                                    print(tweet.createdAt.description)
+                                    print(tweet.text)
+                                    print(tweet.retweetCount)
+                                    print(tweet.likeCount)
+                                    print(tweet.author.profileImageLargeURL)
+                                    print(tweet.author.screenName)
+                                    tweets.append(tweet)
+                                }
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    OnSuccess(tweets: tweets)
+                                })
+                                
+                               
+                            } catch let jsonError as NSError {
+                               
+                                print("json error: \(jsonError.localizedDescription)")
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                 OnFail()
+                                })
+                            }
                         }
-                        
                 }
                 else
                 {

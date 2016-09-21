@@ -13,6 +13,7 @@ import SDWebImage
 
 class FollowersViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var followers : [User] = []
     
     @IBOutlet weak var FollowersTableView: UITableView!
@@ -27,9 +28,13 @@ class FollowersViewController: UIViewController, UITableViewDelegate , UITableVi
         //            }) { () -> () in
         //
         //        }
+        activityIndicator.startAnimating()
+        self.view.bringSubviewToFront(activityIndicator);
+
         TwitterHelper.getUserFollowers({ (followers) -> () in
             self.followers = followers
             self.FollowersTableView.reloadData()
+            self.activityIndicator.stopAnimating()
             }) { () -> () in
                 Alert.showAlert(self, alertType: .Error)
         }
@@ -59,7 +64,10 @@ class FollowersViewController: UIViewController, UITableViewDelegate , UITableVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
         if (segue.identifier == "follower") {
-            var viewController = segue.destinationViewController as! FollowerViewController
+            
+            let nav = segue.destinationViewController as! UINavigationController
+            let viewController = nav.topViewController as! FollowerViewController
+//            var viewController = segue.destinationViewController as! FollowerViewController
             viewController.userId = valueToPass
         }
     }

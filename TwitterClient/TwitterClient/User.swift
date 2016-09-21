@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-//TODO Use TWTRUser initfromjson extension method
+//TODO Use TWTRUser instead 
 class User {
     var id : String?
     var handle: String?

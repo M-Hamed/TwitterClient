@@ -11,13 +11,12 @@ import TwitterKit
 import SwiftyJSON
 class LoginViewController: UIViewController {
     
-    //logout
-    //    if let userID = Twitter.sharedInstance().sessionStore.session()?.userID {
-    //        Twitter.sharedInstance().sessionStore.logOutUserID(userID)
-    //    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //logout
+//        if let userID = Twitter.sharedInstance().sessionStore.session()?.userID {
+//            Twitter.sharedInstance().sessionStore.logOutUserID(userID)
+//        }
         //There is a valid session //logged in user
         if (Twitter.sharedInstance().sessionStore.session() != nil)
         {
@@ -44,71 +43,37 @@ class LoginViewController: UIViewController {
             //The login process, There is no valid session
         else
         {
-            //Twitter Login
-            let logInButton = TWTRLogInButton { (session, error) in
-                if let unwrappedSession = session {
-                    let alert = UIAlertController(title: "Logged In",
-                        message: "\(unwrappedSession.userName) has logged in",
-                        preferredStyle: UIAlertControllerStyle.Alert
-                    )
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                } else {
-                    NSLog("Login error: %@", error!.localizedDescription);
-                }
-            }
+                        //Twitter Login Button
+                        let logInButton = TWTRLogInButton { (session, error) in
+                            if let unwrappedSession = session {
+                               
+                                Alert.showAlert(self, message: "Logged In", title: "\(unwrappedSession.userName) has logged in", completion: { (alertAction) -> Void in
+                                    self.performSegueWithIdentifier("followers", sender: self)
+                                })
+                            } else {
+                                NSLog("Login error: %@", error!.localizedDescription);
+                            }
+                        }
+                        logInButton.center = self.view.center
+                        self.view.addSubview(logInButton)
+            //End Twitter Login Button
             
-            // TODO: Change where the log in button is positioned in your view
-            logInButton.center = self.view.center
-            self.view.addSubview(logInButton)
-            //End Twitter Login
-            
-            //            //Login Manually
-            //            Twitter.sharedInstance().logInWithMethods([.WebBased]) { session, error in
-            //                if (session != nil) {
-            //                    print("signed in as \(session!.userName)");
-            //
-            //                    let alert = UIAlertController(title: "Logged In",
-            //                        message: "\(session!.userName) has logged in",
-            //                        preferredStyle: UIAlertControllerStyle.Alert
-            //                    )
-            //                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            //                    self.presentViewController(alert, animated: true, completion: nil)
-            //                    //                //Get EMail
-            //                    //                let client = TWTRAPIClient.clientWithCurrentUser()
-            //                    //                let request = client.URLRequestWithMethod("GET",
-            //                    //                    URL: "https://api.twitter.com/1.1/account/verify_credentials.json",
-            //                    //                    parameters: ["include_email": "true", "skip_status": "true"],
-            //                    //                    error: nil)
-            //                    //
-            //                    //                client.sendTwitterRequest(request) { response, data, connectionError in
-            //                    //
-            //                    //                    let json = JSON(data: data!)
-            //                    //
-            //                    //                        print(json)
-            //                    //                        print(json["email"])
-            //                    //
-            //                    //
-            //                    //                }
-            //                    //                //Email
-            //
-            //
-            //                } else {
-            //                    print("error: \(error!.localizedDescription)");
-            //                }
-            //                
-            //            }
         }
-        
-        
-        
-        
-        
-        
-        
-        
     }
-    
+//    @IBAction func login(sender: AnyObject) {
+//        //Login Manually
+//        Twitter.sharedInstance().logInWithMethods([.WebBased]) { session, error in
+//            if (session != nil) {
+//                Alert.showAlert(self, message:"\(session!.userName) has logged in" , title:"Logged In" )
+//                //                            self.performSegueWithIdentifier("followers", sender: self)
+//
+//            } else {
+//                print("error: \(error!.localizedDescription)");
+//            }
+//        }
+//        //End Twitter Login manual
+//
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
