@@ -11,7 +11,12 @@ import TwitterKit
 import SDWebImage
 
 class FollowerViewController: UIViewController , UITableViewDelegate,UITableViewDataSource {
-    var userId : String?
+//    var userId : String?
+    var user : User?
+    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var bannerPic: UIImageView!
+    
+    
     var tweets : [TWTRTweet] = []
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -20,6 +25,9 @@ class FollowerViewController: UIViewController , UITableViewDelegate,UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
         self.TweetsTableView.delegate = self
         self.TweetsTableView.dataSource = self
         
@@ -27,7 +35,13 @@ class FollowerViewController: UIViewController , UITableViewDelegate,UITableView
         self.view.bringSubviewToFront(activityIndicator);
         
         
-        TwitterHelper.getUserTweets(userId!, OnSuccess: { (tweets) -> () in
+       
+        
+        profilePic.sd_setImageWithURL(NSURL(string: user!.profileImageUrl!), placeholderImage: UIImage(named: "profilePic"), options: SDWebImageOptions.ProgressiveDownload, completed: nil)
+        bannerPic.sd_setImageWithURL(NSURL(string: user!.bannerImageUrl!), placeholderImage: UIImage(named: "profilePic")!, options: SDWebImageOptions.ProgressiveDownload, completed: nil)
+
+        
+        TwitterHelper.getUserTweets((user?.id!)!, OnSuccess: { (tweets) -> () in
             
             self.tweets = tweets
             self.TweetsTableView.reloadData()

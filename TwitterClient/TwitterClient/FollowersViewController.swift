@@ -17,7 +17,7 @@ class FollowersViewController: UIViewController, UITableViewDelegate , UITableVi
     var followers : [User] = []
     
     @IBOutlet weak var FollowersTableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.FollowersTableView.delegate = self
@@ -30,7 +30,7 @@ class FollowersViewController: UIViewController, UITableViewDelegate , UITableVi
         //        }
         activityIndicator.startAnimating()
         self.view.bringSubviewToFront(activityIndicator);
-
+        
         TwitterHelper.getUserFollowers({ (followers) -> () in
             self.followers = followers
             self.FollowersTableView.reloadData()
@@ -50,25 +50,28 @@ class FollowersViewController: UIViewController, UITableViewDelegate , UITableVi
             cell.BioTextView.text = ""
         }
         let defaultImage = UIImage(named: "profilePic")
-
+        
         cell.ProfileImage.sd_setImageWithURL(NSURL(string: followers[indexPath.row].profileImageUrl!), placeholderImage: defaultImage!, options: SDWebImageOptions.ProgressiveDownload, completed: nil)
-
+        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        valueToPass = followers[indexPath.row].id!
+//        valueToPass = followers[indexPath.row].id!
+        userToPass = followers[indexPath.row]
         self.performSegueWithIdentifier("follower", sender: self)
     }
-    var valueToPass = ""
+//    var valueToPass = ""
+    var userToPass : User?
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
         
         if (segue.identifier == "follower") {
             
-            let nav = segue.destinationViewController as! UINavigationController
-            let viewController = nav.topViewController as! FollowerViewController
-//            var viewController = segue.destinationViewController as! FollowerViewController
-            viewController.userId = valueToPass
+            //            let nav = segue.destinationViewController as! UINavigationController
+            //            let viewController = nav.topViewController as! FollowerViewController
+            let viewController = segue.destinationViewController as! FollowerViewController
+//            viewController.userId = valueToPass
+            viewController.user = userToPass
         }
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
