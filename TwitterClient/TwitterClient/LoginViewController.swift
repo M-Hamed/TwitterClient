@@ -51,7 +51,9 @@ class LoginViewController: UIViewController {
                 if let unwrappedSession = session {
                     
                     Alert.showAlert(self, message: "Logged In", title: "\(unwrappedSession.userName) has logged in", completion: { (alertAction) -> Void in
-                        self.performSegueWithIdentifier("followers", sender: self)
+//                        self.performSegueWithIdentifier("followers", sender: self)
+                        self.performSegueWithIdentifier("timeline", sender: self)
+
                     })
                 } else {
                     NSLog("Login error: %@", error!.localizedDescription);

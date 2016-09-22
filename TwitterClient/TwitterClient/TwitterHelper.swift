@@ -10,6 +10,9 @@ import Foundation
 import TwitterKit
 import SwiftyJSON
 
+//TODO 
+//user Twitter Cursring to load more data by swiping 
+//https://dev.twitter.com/overview/api/cursoring
 class TwitterHelper {
     
     class func loadCurrentUser(OnSuccess: (user : TWTRUser)->() , OnFail : () -> ())
