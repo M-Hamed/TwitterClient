@@ -1,15 +1,18 @@
 # TwitterClient
 
+# A simple Twitter Client For iOS
 ![N|Solid](https://cdn3.iconfinder.com/data/icons/social-icons-5/607/Twitterbird.png)
-### 3rd Party libraries used 
+# 3rd Party libraries used 
 * [Fabric] 
 * [SwiftyJSON] 
 * [NYTPhotoViewer] 
 * [SDWebImage] 
-### Useful Links
+
+# Useful Links
 * [Twitter REST APIs]
 * [Fabric Twitter Kit]
-### Todos
+
+# Todos
  - Ui improvements
  - Infinte scroll using twitter's API cursring 
 
