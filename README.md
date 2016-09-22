@@ -1,7 +1,11 @@
 # TwitterClient
 
 # A simple Twitter Client For iOS
-![N|Solid](https://cdn3.iconfinder.com/data/icons/social-icons-5/607/Twitterbird.png)
+<img src="https://cdn3.iconfinder.com/data/icons/social-icons-5/607/Twitterbird.png" width="200" height="200" />
+
+# Demo Video 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/kz62Gg7xVPQ/0.jpg)](https://youtu.be/kz62Gg7xVPQ)
+
 # 3rd Party libraries used 
 * [Fabric] 
 * [SwiftyJSON] 
