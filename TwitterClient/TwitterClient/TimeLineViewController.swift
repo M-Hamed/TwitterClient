@@ -21,4 +21,11 @@ class TimeLineViewController: TWTRTimelineViewController {
         
     }
 
+    @IBAction func logOut(sender: AnyObject) {
+        if let userID = Twitter.sharedInstance().sessionStore.session()?.userID {
+            Twitter.sharedInstance().sessionStore.logOutUserID(userID)
+            self.performSegueWithIdentifier("login", sender: self)
+
+        }
+    }
 }

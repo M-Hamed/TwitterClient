@@ -59,6 +59,7 @@ class LoginViewController: UIViewController {
                     NSLog("Login error: %@", error!.localizedDescription);
                 }
             }
+            logInButton.loginMethods = [.WebBased]
             logInButton.center = self.view.center
             self.view.addSubview(logInButton)
             //End Twitter Login Button

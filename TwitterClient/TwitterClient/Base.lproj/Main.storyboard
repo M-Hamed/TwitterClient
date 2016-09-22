@@ -55,12 +55,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Timeline" id="bJJ-tW-eUB">
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="bkT-mI-f7L">
+                            <connections>
+                                <action selector="logOut:" destination="jTV-lY-eXY" id="mhA-eG-X0m"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Followers" id="zuj-Ru-rqB">
                             <connections>
                                 <segue destination="BCU-Md-671" kind="show" id="kqf-CN-ywt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="login" id="9nY-kP-RCS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNs-FN-m6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -430,6 +438,6 @@
         <image name="twitter-banner.png" width="662" height="223"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zEC-HP-Stw"/>
+        <segue reference="kqf-CN-ywt"/>
     </inferredMetricsTieBreakers>
 </document>
