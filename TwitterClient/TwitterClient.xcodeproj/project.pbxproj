@@ -13,6 +13,8 @@
 		F114D2691D931FBE00EFD926 /* TweetCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F114D2681D931FBE00EFD926 /* TweetCustomTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		F114D26C1D93297C00EFD926 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = F114D26A1D93297C00EFD926 /* like.png */; settings = {ASSET_TAGS = (); }; };
 		F114D26D1D93297C00EFD926 /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = F114D26B1D93297C00EFD926 /* retweet.png */; settings = {ASSET_TAGS = (); }; };
+		F114D2711D9355E500EFD926 /* twitter-banner.png in Resources */ = {isa = PBXBuildFile; fileRef = F114D2701D9355E500EFD926 /* twitter-banner.png */; settings = {ASSET_TAGS = (); }; };
+		F114D2731D935B7000EFD926 /* ExamplePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F114D2721D935B7000EFD926 /* ExamplePhoto.swift */; settings = {ASSET_TAGS = (); }; };
 		F12A9DCE1D9009FE00C19BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DCD1D9009FE00C19BF1 /* AppDelegate.swift */; };
 		F12A9DD01D9009FE00C19BF1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A9DCF1D9009FE00C19BF1 /* LoginViewController.swift */; };
 		F12A9DD31D9009FE00C19BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12A9DD11D9009FE00C19BF1 /* Main.storyboard */; };
@@ -40,6 +42,8 @@
 		F114D2681D931FBE00EFD926 /* TweetCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCustomTableViewCell.swift; sourceTree = "<group>"; };
 		F114D26A1D93297C00EFD926 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
 		F114D26B1D93297C00EFD926 /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet.png; sourceTree = "<group>"; };
+		F114D2701D9355E500EFD926 /* twitter-banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-banner.png"; sourceTree = "<group>"; };
+		F114D2721D935B7000EFD926 /* ExamplePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplePhoto.swift; sourceTree = "<group>"; };
 		F12A9DCA1D9009FE00C19BF1 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12A9DCD1D9009FE00C19BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F12A9DCF1D9009FE00C19BF1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 		F12A9DCC1D9009FE00C19BF1 /* TwitterClient */ = {
 			isa = PBXGroup;
 			children = (
+				F114D2701D9355E500EFD926 /* twitter-banner.png */,
 				F114D26A1D93297C00EFD926 /* like.png */,
 				F114D26B1D93297C00EFD926 /* retweet.png */,
 				F114D2641D92FFB300EFD926 /* twittericon.png */,
@@ -138,6 +143,7 @@
 				F12A9DE91D91358400C19BF1 /* Alert.swift */,
 				F12A9DEF1D91724000C19BF1 /* User.swift */,
 				F12A9DF31D917C1000C19BF1 /* TwitterHelper.swift */,
+				F114D2721D935B7000EFD926 /* ExamplePhoto.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -221,6 +227,7 @@
 				F12A9DD81D9009FE00C19BF1 /* LaunchScreen.storyboard in Resources */,
 				F12A9DD51D9009FE00C19BF1 /* Assets.xcassets in Resources */,
 				F114D26C1D93297C00EFD926 /* like.png in Resources */,
+				F114D2711D9355E500EFD926 /* twitter-banner.png in Resources */,
 				F12A9DD31D9009FE00C19BF1 /* Main.storyboard in Resources */,
 				F114D26D1D93297C00EFD926 /* retweet.png in Resources */,
 				F114D2631D92DC0B00EFD926 /* profilePic.png in Resources */,
@@ -298,6 +305,7 @@
 				F12A9DEC1D9140D800C19BF1 /* FollowersViewController.swift in Sources */,
 				F12A9DFA1D91D00000C19BF1 /* FollowerViewController.swift in Sources */,
 				F12A9DEA1D91358500C19BF1 /* Alert.swift in Sources */,
+				F114D2731D935B7000EFD926 /* ExamplePhoto.swift in Sources */,
 				F12A9DF61D91B39500C19BF1 /* TimeLineViewController.swift in Sources */,
 				F12A9DD01D9009FE00C19BF1 /* LoginViewController.swift in Sources */,
 				F12A9DF81D91C8AB00C19BF1 /* FollowerCustomTableViewCell.swift in Sources */,

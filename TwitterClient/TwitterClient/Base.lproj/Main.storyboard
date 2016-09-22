@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="269" y="187"/>
         </scene>
-        <!--Time Line View Controller-->
+        <!--Timeline-->
         <scene sceneID="gqj-2x-ZiM">
             <objects>
                 <tableViewController id="jTV-lY-eXY" customClass="TimeLineViewController" customModule="TwitterClient" sceneMemberID="viewController">
@@ -54,7 +54,7 @@
                             <outlet property="delegate" destination="jTV-lY-eXY" id="WgC-Gj-ASh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="bJJ-tW-eUB">
+                    <navigationItem key="navigationItem" title="Timeline" id="bJJ-tW-eUB">
                         <barButtonItem key="rightBarButtonItem" title="Followers" id="zuj-Ru-rqB">
                             <connections>
                                 <segue destination="BCU-Md-671" kind="show" id="kqf-CN-ywt"/>
@@ -195,7 +195,7 @@
                                 <animations/>
                                 <color key="color" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtF-uz-7CO">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="twitter-banner.png" translatesAutoresizingMaskIntoConstraints="NO" id="rtF-uz-7CO">
                                 <rect key="frame" x="0.0" y="20" width="600" height="120"/>
                                 <animations/>
                                 <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -360,6 +360,7 @@
                         <outlet property="activityIndicator" destination="boa-Sr-UgC" id="VUF-ub-2KO"/>
                         <outlet property="bannerPic" destination="rtF-uz-7CO" id="92N-DH-xEO"/>
                         <outlet property="profilePic" destination="f7D-U2-7wX" id="eb9-9w-9xu"/>
+                        <segue destination="dMy-i9-dab" kind="presentation" identifier="imagePopup" modalPresentationStyle="formSheet" modalTransitionStyle="crossDissolve" id="1zq-BA-Hgd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B2V-j4-SmT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,13 +406,30 @@
             </objects>
             <point key="canvasLocation" x="1302" y="185"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q2z-o5-dl7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dMy-i9-dab" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CeW-3y-ALi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uQi-HU-bZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3580" y="185"/>
+        </scene>
     </scenes>
     <resources>
         <image name="like.png" width="63" height="59"/>
         <image name="profilePic.png" width="150" height="150"/>
         <image name="retweet.png" width="103" height="75"/>
+        <image name="twitter-banner.png" width="662" height="223"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kqf-CN-ywt"/>
+        <segue reference="zEC-HP-Stw"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,17 +1,28 @@
 PODS:
+  - FLAnimatedImage (1.0.12)
+  - NYTPhotoViewer (1.1.0):
+    - NYTPhotoViewer/AnimatedGifSupport (= 1.1.0)
+    - NYTPhotoViewer/Core (= 1.1.0)
+  - NYTPhotoViewer/AnimatedGifSupport (1.1.0):
+    - FLAnimatedImage (~> 1.0.8)
+    - NYTPhotoViewer/Core
+  - NYTPhotoViewer/Core (1.1.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
+  - NYTPhotoViewer (~> 1.1.0)
   - SDWebImage (~> 3.8)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: cd7e972ef972dfdb14be396c3615c81f81cb514f
+PODFILE CHECKSUM: fe845eb0882f44fc1de81232120d0868cd7d8f4a
 
 COCOAPODS: 1.0.1

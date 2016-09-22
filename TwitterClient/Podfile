@@ -6,6 +6,7 @@ target 'TwitterClient' do
   use_frameworks!
   pod 'SwiftyJSON'
   pod 'SDWebImage', '~>3.8'
+  pod 'NYTPhotoViewer', '~> 1.1.0'
   # Pods for TwitterClient
 
 end
