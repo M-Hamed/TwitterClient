@@ -12,117 +12,78 @@ import SDWebImage
 import NYTPhotoViewer
 
 class FollowerViewController: UIViewController , UITableViewDelegate,UITableViewDataSource , NYTPhotosViewControllerDelegate{
-    //    var userId : String?
-    var user : User?
+
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var bannerPic: UIImageView!
-    
-    
-    var tweets : [TWTRTweet] = []
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var TweetsTableView: UITableView!
     
+    var tweets : [TWTRTweet] = []
+    var user : User?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let profileTap = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
+        let profileTap = UITapGestureRecognizer(target: self, action: #selector(FollowerViewController.imageTapped(_:)))
         profilePic.addGestureRecognizer(profileTap)
-        let bannerTap = UITapGestureRecognizer(target: self, action: Selector("bannerTapped:"))
+        let bannerTap = UITapGestureRecognizer(target: self, action: #selector(FollowerViewController.bannerTapped(_:)))
         bannerPic.addGestureRecognizer(bannerTap)
         
         self.TweetsTableView.delegate = self
         self.TweetsTableView.dataSource = self
         
         activityIndicator.startAnimating()
-        self.view.bringSubviewToFront(activityIndicator);
+        self.view.bringSubview(toFront: activityIndicator);
         
-        
-        
-        
-        profilePic.sd_setImageWithURL(NSURL(string: user!.profileImageUrl!), placeholderImage: UIImage(named: "profilePic"), options: SDWebImageOptions.ProgressiveDownload, completed: nil)
-        bannerPic.sd_setImageWithURL(NSURL(string: user!.bannerImageUrl!), placeholderImage: UIImage(named: "twitter-banner")!, options: SDWebImageOptions.ProgressiveDownload, completed: nil)
-        
+        profilePic.sd_setImage(with: URL(string: user!.profileImageUrl!), placeholderImage: UIImage(named: "profilePic"), options: SDWebImageOptions.progressiveDownload, completed: nil)
+        bannerPic.sd_setImage(with: URL(string: user!.bannerImageUrl!), placeholderImage: UIImage(named: "twitter-banner")!, options: SDWebImageOptions.progressiveDownload, completed: nil)
         
         TwitterHelper.getUserTweets((user?.id!)!, OnSuccess: { (tweets) -> () in
-            
             self.tweets = tweets
             self.TweetsTableView.reloadData()
             self.activityIndicator.stopAnimating()
-            
             }) { () -> () in
-                Alert.showAlert(self, alertType: .Error)
+                Alert.showAlert(self, alertType: .error)
         }
-        
-    }
+    }    
     
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.TweetsTableView.dequeueReusableCellWithIdentifier("tweetCell", forIndexPath: indexPath) as! TweetCustomTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.TweetsTableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCustomTableViewCell
         cell.TweetText.text = tweets[indexPath.row].text//or text ?
         cell.UserName.text =  "@" + tweets[indexPath.row].author.screenName
         cell.LikesCount.text = tweets[indexPath.row].likeCount.description
         cell.RetweetsCount.text = tweets[indexPath.row].retweetCount.description
         cell.Date.text = tweets[indexPath.row].createdAt.description
         let defaultImage = UIImage(named: "profilePic")
-        cell.ProfilePic.sd_setImageWithURL(NSURL(string: tweets[indexPath.row].author.profileImageLargeURL), placeholderImage: defaultImage!, options: SDWebImageOptions.ProgressiveDownload, completed: nil)
+        cell.ProfilePic.sd_setImage(with: URL(string: tweets[indexPath.row].author.profileImageLargeURL), placeholderImage: defaultImage!, options: SDWebImageOptions.progressiveDownload, completed: nil)
         return cell
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
     }
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    // MARK: - NYTPhotosViewControllerDelegate
-    
-    func photosViewController(photosViewController: NYTPhotosViewController, handleActionButtonTappedForPhoto photo: NYTPhoto) -> Bool {
-        
-        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            
-            guard let photoImage = photo.image else { return false }
-            
-            let shareActivityViewController = UIActivityViewController(activityItems: [photoImage], applicationActivities: nil)
-            
-            shareActivityViewController.completionWithItemsHandler = {(activityType: String?, completed: Bool, items: [AnyObject]?, error: NSError?) in
-                if completed {
-                    photosViewController.delegate?.photosViewController!(photosViewController, actionCompletedWithActivityType: activityType!)
-                }
-            }
-            
-            shareActivityViewController.popoverPresentationController?.barButtonItem = photosViewController.rightBarButtonItem
-            photosViewController.presentViewController(shareActivityViewController, animated: true, completion: nil)
-            
-            return true
-        }
-        
+    func photosViewController(_ photosViewController: NYTPhotosViewController, handleActionButtonTappedFor photo: NYTPhoto) -> Bool {
         return false
     }
     
-    //Image popup
-    
-    func imageTapped( sender : UITapGestureRecognizer)
-    {
+    func imageTapped( _ sender : UITapGestureRecognizer) {
         let imageview  = sender.view! as! UIImageView;
         imagePopup(imageview.image!)
     }
-    func imagePopup(image : UIImage)
-    {
+    func imagePopup(_ image : UIImage) {
         var photos : [ExamplePhoto] = []
         photos.append(ExamplePhoto(image: image, imageData: nil, attributedCaptionTitle: NSAttributedString(string: "")))
         let photosViewController = NYTPhotosViewController(photos: photos)
         photosViewController.delegate = self
-        presentViewController(photosViewController, animated: true, completion: nil)
+        present(photosViewController, animated: true, completion: nil)
     }
-    func bannerTapped( sender : UITapGestureRecognizer)
-    {
+    func bannerTapped( _ sender : UITapGestureRecognizer) {
         let imageview  = sender.view! as! UIImageView;
         imagePopup(imageview.image!)
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

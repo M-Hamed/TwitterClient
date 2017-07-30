@@ -17,12 +17,11 @@ class TweetCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var RetweetsCount: UILabel!
     @IBOutlet weak var Date: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 }

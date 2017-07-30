@@ -9,22 +9,21 @@ import UIKit
 import TwitterKit
 
 class TimeLineViewController: TWTRTimelineViewController {
-    override func viewDidLoad()
-    {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         TwitterHelper.loadCurrentUser({ (user) -> () in
             let client = TWTRAPIClient(userID:user.userID )
-            self.dataSource = TWTRUserTimelineDataSource(screenName: user.screenName, APIClient: client)
+            self.dataSource = TWTRUserTimelineDataSource(screenName: user.screenName, apiClient: client)
             }) { () -> () in
                 print("failed")
         }
-        
     }
 
-    @IBAction func logOut(sender: AnyObject) {
+    @IBAction func logOut(_ sender: AnyObject) {
         if let userID = Twitter.sharedInstance().sessionStore.session()?.userID {
             Twitter.sharedInstance().sessionStore.logOutUserID(userID)
-            self.performSegueWithIdentifier("login", sender: self)
+            self.performSegue(withIdentifier: "login", sender: self)
 
         }
     }

@@ -14,11 +14,10 @@ class FollowerCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var BioTextView: UITextView!
     @IBOutlet weak var ProfileImage: UIImageView!
 
-     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
    

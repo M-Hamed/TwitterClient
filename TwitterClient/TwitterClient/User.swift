@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-//TODO Use TWTRUser instead 
+//TODO Use TWTRUser instead
 class User {
     var id : String?
     var handle: String?
@@ -17,36 +17,14 @@ class User {
     var profileImageUrl : String?
     var bannerImageUrl : String?
     var bio : String?
-
-    init(json : JSON)
-    {
-        if let _ = json["id_str"].string
-        {
-            self.id = json["id_str"].string
-        }
-        if let _ = json["screen_name"].string
-        {
-            self.handle = json["screen_name"].string
-        }
-        
-        if let _ = json["name"].string
-        {
-            self.name = json["name"].string
-        }
-        if let _ = json["profile_image_url"].string
-        {
-            self.profileImageUrl = json["profile_image_url"].string
-        }
-        if let _ = json["description"].string
-        {
-            self.bio = json["description"].string
-        }
-        if let _ = json["profile_banner_url"].string
-        {
-            self.bannerImageUrl = json["profile_banner_url"].string
-        }
-        
-        
+    
+    init(json : JSON) {
+        self.id = json["id_str"].string ?? ""
+        self.handle = json["screen_name"].string ?? ""
+        self.name = json["name"].string ?? ""
+        self.profileImageUrl = json["profile_image_url"].string ?? ""
+        self.bio = json["description"].string ?? ""
+        self.bannerImageUrl = json["profile_banner_url"].string ?? ""
     }
 }
 
